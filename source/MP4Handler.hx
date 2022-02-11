@@ -22,7 +22,7 @@ class MP4Handler
 	public static var finishCallback:FlxState;
 	public var sprite:FlxSprite;
 	
-	public static var vlcBitmap:VlcBitmap;
+	public var vlcBitmap:VlcBitmap;
 
 	public function new()
 	{
