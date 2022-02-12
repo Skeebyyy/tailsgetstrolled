@@ -30,12 +30,9 @@ using StringTools;
 selectedSomethin = true;
 PlayState.storyPlaylist = ["talentless-fox"];
 PlayState.isStoryMode = true;
-
 PlayState.storyDifficulty = 2;
-
 PlayState.storyWeek = 0;
 PlayState.campaignScore = 0;
-
 var video:MP4Handler = new MP4Handler();
 if (!isCutscene) // Checks if the current week is Tutorial.
 {
@@ -124,6 +121,14 @@ class StoryMenuState extends MusicBeatState
 
 		PlayState.storyWeek = 0;
 		PlayState.campaignScore = 0;
+
+		var video:MP4Handler = new MP4Handler();
+		if (!isCutscene) // Checks if the current week is Tutorial.
+		{
+			video.playMP4(Paths.video(weekData.cutscene), new PlayState());
+			isCutscene = true;
+		}
+		PlayState.SONG = Song.loadFromJson('${weekData.song}-hard', weekData.song);
 	}
 
 	function onMouseUp(object:FlxObject){
